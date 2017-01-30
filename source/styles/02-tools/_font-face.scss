@@ -1,0 +1,35 @@
+@function font-src($filepath, $ext, $format){
+  @return url('#{$filepath}.#{$ext}') format('#{$format}');
+}
+
+@function font-sources($filepath, $formats) {
+  $format-map: (
+    eot: (
+      extension: 'eot?#iefix',
+      format: 'embedded-opentype'
+    ),
+    woff2: (
+      extension: 'woff2',
+      format: 'woff2'
+    ),
+    woff: (
+      extension: 'woff',
+      format: 'woff'
+    ),
+    ttf: (
+      extension: 'ttf',
+      format: 'truetype'
+    )
+  );
+
+  $src: ();
+
+  @each $key, $format in $format-map {
+    @if index($formats, $key) {
+      $itemSrc: font-src($filepath, map-get($format, 'extension'), map-get($format, 'format'));
+      $src: append($src, $itemSrc, comma);
+    }
+  }
+
+  @return $src
+}

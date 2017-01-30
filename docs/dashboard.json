@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Templates",
+    "pages": [
+      {
+        "name": "T1 Example",
+        "url": "/pages/T1-Example.html",
+        "status": 0,
+        "links": [],
+        "notes": []
+      }
+    ]
+  }
+]

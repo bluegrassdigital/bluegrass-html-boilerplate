@@ -1,0 +1,11 @@
+@function rem($size, $html-fontsize: 16px) {
+  @return ($size / $html-fontsize) * 1rem;
+}
+
+@mixin font-size($size, $line-height: false) {
+  font-size: $size;
+  font-size: rem($size);
+  @if $line-height {
+    line-height: ($line-height / $size);
+  }
+}

@@ -1,0 +1,38 @@
+// This is merely an 'index', no actual Scss/CSS to go in this file
+
+//--- 01. Settings ---//
+// Variables, config etc.
+@import '01-settings/variables';
+
+//--- 02. Tools ---//
+// Import library functions and mixins
+@import 'nestable-grid/main';
+@import 'blueq/main';
+@import '02-tools/clearfix';
+@import '02-tools/font-face';
+@import '02-tools/sizing';
+
+//--- 03. Generic ---//
+// Put all Resets, Normalize etc baseline code
+@import '03-generic/reset';
+
+//--- 04. Elements ---//
+// Some global default element styles that are not usually the defaults
+@import '04-elements/fonts';
+@import '04-elements/page';
+
+//--- 05. Objects ---//
+// Here we put smaller parts of the ui - things like button styles, list styles, table styles etc.
+// Here we start making sure everything is namespaced/classed using BEM
+@import '05-objects/layout';
+
+//--- 06. Components ---//
+// These are bespoke chunks of the UI - each of these imported files should contain ONLY ONE 'BLOCK' each, which should be named the same as the file
+@import '06-components/footer';
+@import '06-components/header';
+
+//--- 07. Trumps ---//
+// Helpers and overrides
+// Use as sparingly as possible. Stuff in here can have !important. Again, USE ONLY WHEN NECESSARY (#NeverTrump)
+@import '07-trumps/helpers';
+@import '07-trumps/overrides';

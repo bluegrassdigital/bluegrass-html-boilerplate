@@ -1,0 +1,12 @@
+@each $name, $size in $blueq-breakpoints {
+  .hidden-#{$name}-up {
+    @include blueq-min($size) {
+      display: none !important;
+    }
+  }
+  .hidden-#{$name}-down {
+    @include blueq-max($size) {
+      display: none !important;
+    }
+  }
+}

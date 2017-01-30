@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8 lte-ie9 lte-ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="no-js ie9 lte-ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+
+  {% block stylesheets %}{% endblock %}
+
+  <!--[if (lte IE 8)&!(IEMobile)]>
+    {% block oldie %}{% endblock %}
+  <![endif]-->
+
+  {% block headerScripts %}{% endblock %}
+
+  {% include 'components/favicons.njk' %}
+</head>
+
+<body>
+  <div id="wrapper">
+    {% block body %}{% endblock %}
+  </div>
+
+  {% block scripts %}{% endblock %}
+</body>
+
+</html>

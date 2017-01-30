@@ -1,0 +1,10 @@
+.is-hidden {
+  display: none !important;
+}
+
+//Accessibility helper text
+.a11y {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}

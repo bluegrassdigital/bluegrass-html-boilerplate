@@ -1,0 +1,40 @@
+//--- Settings ---//
+// Variables, config etc.
+@import '01-settings/variables';
+
+//--- Tools ---//
+// Import library functions and mixins
+@import '02-tools/clearfix';
+@import '02-tools/font-face';
+@import '02-tools/sizing';
+
+@import '03-generic/reset';
+
+//--- Print Styles ---//
+
+body {
+  background: #FFFFFF;
+  color: #000000;
+  font-size: 12pt;
+  font-family: 'Times new roman', Georgia, serif;
+  text-align: left;
+}
+
+a {
+  color: 	#0000FF;
+  text-decoration: underline;
+}
+a img {
+  border: none;
+}
+img {
+  display: block;
+  margin: 12pt 0;
+}
+
+/* TODO:: list classes and ids to remove from print output here */
+.exampleClass,
+#exampleID {
+  display: none;
+  visibility: hidden;
+}
