@@ -1,4 +1,5 @@
 import gulp from 'gulp'
+import path from 'path'
 import webpack from 'webpack'
 import gutil from 'gulp-util'
 
@@ -15,7 +16,7 @@ gulp.task('scripts', cb => {
   if (env === DEV || env === STAGE) {
     config.watch = true
   }
-  config.output.path = output() + '/assets/scripts/'
+  config.output.path = path.resolve(output() + '/assets/scripts/')
   webpack(config, (err, stats) => {
     if (err) throw new gutil.PluginError('webpack:build', err)
     gutil.log('[webpack:build]', stats.toString({

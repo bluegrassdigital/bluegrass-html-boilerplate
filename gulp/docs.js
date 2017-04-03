@@ -6,8 +6,7 @@ import { output, handleErrors } from '../gulpfile.babel'
 
 import { templateData, nunjucksConfig } from './html'
 
-
-gulp.task('docs:copy', () => {
+gulp.task('docs', ['docs:nunjucks:html', 'docs:nunjucks:md'], () => {
   const source = ['./docs/**/*', '!./docs/**/*.{md,markdown}']
   const dest = `${output()}/docs/`
 
@@ -17,7 +16,7 @@ gulp.task('docs:copy', () => {
     .pipe(gulp.dest(dest))
 })
 
-gulp.task('docs:nunjucks', () => {
+gulp.task('docs:nunjucks:md', () => {
   const source = ['./docs/**/*.{md,markdown}', './*.{md,markdown}']
   const dest = `${output()}/docs/`
 
@@ -25,11 +24,24 @@ gulp.task('docs:nunjucks', () => {
     .pipe(data(templateData()))
     .on('error', handleErrors)
     .pipe(nunjucks({
-      searchPaths: ['./source'],
+      searchPaths: ['./source/html', './source'],
       ext: '.md'
     }))
     .on('error', handleErrors)
     .pipe(gulp.dest(dest))
 })
 
-gulp.task('docs', ['docs:copy', 'docs:nunjucks'])
+gulp.task('docs:nunjucks:html', () => {
+  const source = ['./docs/**/*.html']
+  const dest = `${output()}/docs/`
+
+  return gulp.src(source)
+    .pipe(data(templateData()))
+    .on('error', handleErrors)
+    .pipe(nunjucks({
+      searchPaths: ['./source/html'],
+      ext: '.html'
+    }))
+    .on('error', handleErrors)
+    .pipe(gulp.dest(dest))
+})

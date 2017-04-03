@@ -11,10 +11,8 @@ gulp.task('styles', () => {
   const dest = `${output()}/assets/css`
 
   const sassOpts = {
-    options: {
-      errLogToConsole: true,
-      outputStyle: env === DEV ? 'expanded' : 'compressed'
-    },
+    errLogToConsole: true,
+    outputStyle: env === DEV ? 'expanded' : 'compressed',
     importer
   }
 

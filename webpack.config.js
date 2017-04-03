@@ -11,10 +11,10 @@ module.exports = {
   },
   devtool: 'cheap-module-source-map',
   resolve: {
-    root: [path.resolve('node_modules')]
+    modules: [path.resolve('node_modules')]
   },
   resolveLoader: {
-    root: [path.resolve('node_modules')]
+    modules: [path.resolve('node_modules')]
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -22,36 +22,21 @@ module.exports = {
         'NODE_ENV': JSON.stringify('production')
       }
     }),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin()
   ],
   module: {
-    preLoaders: [{
+    rules: [{
       // set up standard-loader as a preloader
       test: /\.jsx?$/,
-      loader: 'standard',
-      exclude: /(node_modules|bower_components|docs|third-party)/
-    }],
-    loaders: [{
+      loader: 'standard-loader',
+      exclude: /(docs|third-party)/,
+      include: /(source)/,
+      enforce: 'pre'
+    }, {
       test: /\.js$/,
-      exclude: /(node_modules|bower_components)/,
+      exclude: /(node_modules|bower_components|docs|third-party)/,
       loader: 'babel-loader', // 'babel-loader' is also a legal name to reference
       query: JSON.parse(fs.readFileSync('.babelrc', 'utf8'))
-    }, {
-      test: /modernizr$/,
-      loader: 'imports?this=>window,document=>window.document!exports?window.Modernizr'
-    }, {
-      test: /\.dot$/,
-      loader: 'dot-loader'
-    }, {
-      test: /\.css$/,
-      loader: 'style!css'
-    }, {
-      test: /\.(png|jpg|gif)$/,
-      loader: 'url-loader?limit=25000'
-    }, {
-      test: /\.json$/,
-      loader: 'json'
     }]
   }
 }

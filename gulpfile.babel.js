@@ -38,7 +38,7 @@ gulp.task('default', cb => {
 
 gulp.task('release', cb => {
   env = RELEASE
-  runSequence('_build', cb)
+  runSequence('_build', 'html', cb)
 })
 
 gulp.task('stage', cb => {
