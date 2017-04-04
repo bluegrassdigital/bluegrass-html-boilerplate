@@ -1,6 +1,6 @@
 {
   "name": "bluegrass-html-boilerplate",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Bluegrass front-end boilerplate - gulp, webpack, babel, blue-widgets, Sass, autoprefixer, ITCSS, BEM, Nunjucks, browsersync",
   "author": {
     "name": "Simon Buerger",

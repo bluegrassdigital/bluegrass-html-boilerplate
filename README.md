@@ -47,3 +47,7 @@ Same as the default dev build task, but minifies/uglifies CSS and JS and is ther
 ### `gulp favicons`
 
 Regenerate favicons (and nunjucks partial) from `./src/favicon.png`
+
+## Upgrading
+
+See [release history](https://github.com/bluegrassdigital/bluegrass-html-boilerplate/releases) for changelogs in order to manually upgrade to a new version
