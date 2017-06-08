@@ -52,13 +52,19 @@ export const htmlPrettifyConfig = {
   ]
 }
 
-gulp.task('html', function () {
-  const source = './source/html/pages/**/*.{njk,nunjucks}'
-  const dest = `${output()}/pages`
+gulp.task('html-hint', () => {
+  const source = './source/html/**/*.{njk,nunjucks}'
 
   return gulp.src(source)
     .pipe(htmlhint('.htmlhintrc'))
     .pipe(htmlhint.failReporter())
+})
+
+gulp.task('html', ['html-hint'], () => {
+  const source = './source/html/pages/**/*.{njk,nunjucks}'
+  const dest = `${output()}/pages`
+
+  return gulp.src(source)
     .pipe(data(templateData()))
     .on('error', handleErrors)
     .pipe(nunjucks(nunjucksConfig))

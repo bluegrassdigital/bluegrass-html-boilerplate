@@ -9,5 +9,6 @@
   "src-not-empty": true,
   "img-alt-require": true,
   "doctype-html5": true,
-  "style-disabled": false
+  "style-disabled": false,
+  "space-tab-mixed-disabled": "space2"
 }

@@ -3,7 +3,7 @@
 1. Ensure [NodeJS](https://nodejs.org/en/download/) is installed and `npm` is available on your PATH
 2. [OPTIONAL] Install yarn package manager `npm i yarn -g`
 3. If it isn't already, install the gulp cli globally `npm i gulp-cli -g`
-4. Run `yarn install` OR `npm install` to install the project dependencies
+4. Run `yarn install` to install the project dependencies (this ensures you get the same dependency versions as everyone else). Yarn may need to be installed
 5. Run `gulp` to launch the project in dev mode
 
 ## JavaScript
@@ -21,10 +21,12 @@
 4. [nestable-grid](https://github.com/bluegrassdigital/nestable-grid) - a flexible/nestable responsive grid system
 5. [blueq](https://github.com/bluegrassdigital/blueq) - media query and breakpoint mixins and functions
 6. [Autoprefixer](https://github.com/postcss/autoprefixer) - a post-processing build task to avoid having to write vendor prefixes
+7. Scss files are automatically linted with our style rules in the .scss-lint.yml config
 
 ## HTML
 
 1. [Nunjucks](https://mozilla.github.io/nunjucks/templating.html) for simple layouts and partials to avoid repetitive code
+2. Nunjucks pages and partials are automatically linted with our style rules in the .htmlhintrc config to catch some common errors
 
 ## Writing Documentation
 
