@@ -1,13 +1,27 @@
 import gulp from 'gulp'
 import sass from 'gulp-sass'
+import sassLint from 'gulp-sass-lint'
 import autoprefixer from 'gulp-autoprefixer'
 import sourcemaps from 'gulp-sourcemaps'
 import { importer } from 'npm-sass'
 
 import { handleErrors, output, env, DEV } from '../gulpfile.babel'
 
-gulp.task('styles', () => {
+gulp.task('sass-lint', () => {
   const source = './source/styles/**/*.scss'
+
+  const sassLintOpts = {
+    configFile: './sass-lint.yml'
+  }
+
+  return gulp.src(source)
+    .pipe(sassLint())
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError())
+})
+
+gulp.task('styles', ['sass-lint'], () => {
+  const source = './source/styles/*.scss'
   const dest = `${output()}/assets/css`
 
   const sassOpts = {

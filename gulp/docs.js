@@ -16,6 +16,12 @@ gulp.task('docs', ['docs:nunjucks:html', 'docs:nunjucks:md'], () => {
     .pipe(gulp.dest(dest))
 })
 
+const nunjucksDocsEnvSetup = function (env) {
+  // Do things with nunjucks environment (add globals etc.)
+  // Return new env
+  return env
+}
+
 gulp.task('docs:nunjucks:md', () => {
   const source = ['./docs/**/*.{md,markdown}', './*.{md,markdown}']
   const dest = `${output()}/docs/`
@@ -25,7 +31,8 @@ gulp.task('docs:nunjucks:md', () => {
     .on('error', handleErrors)
     .pipe(nunjucks({
       searchPaths: ['./source/html', './source'],
-      ext: '.md'
+      ext: '.md',
+      setUp: nunjucksDocsEnvSetup
     }))
     .on('error', handleErrors)
     .pipe(gulp.dest(dest))
@@ -40,7 +47,8 @@ gulp.task('docs:nunjucks:html', () => {
     .on('error', handleErrors)
     .pipe(nunjucks({
       searchPaths: ['./source/html'],
-      ext: '.html'
+      ext: '.html',
+      setUp: nunjucksDocsEnvSetup
     }))
     .on('error', handleErrors)
     .pipe(gulp.dest(dest))

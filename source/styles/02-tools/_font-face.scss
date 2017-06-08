@@ -1,4 +1,4 @@
-@function font-src($filepath, $ext, $format){
+@function font-src($filepath, $ext, $format) {
   @return url('#{$filepath}.#{$ext}') format('#{$format}');
 }
 

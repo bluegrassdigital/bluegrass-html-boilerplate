@@ -1,7 +1,7 @@
 import gulp from 'gulp'
-import path from 'path'
 import webpack from 'webpack'
 import gutil from 'gulp-util'
+import path from 'path'
 
 import { output, handleErrors, env, DEV, STAGE } from '../gulpfile.babel'
 import wpConfig from '../webpack.config'
