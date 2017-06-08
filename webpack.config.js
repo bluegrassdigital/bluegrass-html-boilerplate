@@ -16,6 +16,9 @@ module.exports = {
   resolveLoader: {
     modules: [path.resolve('node_modules')]
   },
+  node: {
+    fs: 'empty'
+  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {

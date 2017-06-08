@@ -25,7 +25,12 @@ export const templateData = () => {
 
 export const nunjucksConfig = {
   searchPaths: ['./source/html'],
-  ext: '.html'
+  ext: '.html',
+  setUp: env => {
+    // Do things with nunjucks environment (add globals etc.)
+    // Return new env
+    return env
+  }
 }
 
 export const htmlPrettifyConfig = {
@@ -47,21 +52,19 @@ export const htmlPrettifyConfig = {
   ]
 }
 
-const htmlHintConfig = JSON.parse(fs.readFileSync('.htmlhintrc', 'utf8'))
-
 gulp.task('html', function () {
   const source = './source/html/pages/**/*.{njk,nunjucks}'
   const dest = `${output()}/pages`
 
   return gulp.src(source)
+    .pipe(htmlhint('.htmlhintrc'))
+    .pipe(htmlhint.failReporter())
     .pipe(data(templateData()))
     .on('error', handleErrors)
     .pipe(nunjucks(nunjucksConfig))
     .on('error', handleErrors)
     .pipe(prettify(htmlPrettifyConfig))
     .on('error', handleErrors)
-    .pipe(htmlhint(htmlHintConfig))
-    .pipe(htmlhint.failReporter())
     .on('error', handleErrors)
     .pipe(gulp.dest(dest))
 })
