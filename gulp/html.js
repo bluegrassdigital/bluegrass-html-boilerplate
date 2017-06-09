@@ -52,15 +52,7 @@ export const htmlPrettifyConfig = {
   ]
 }
 
-gulp.task('html-hint', () => {
-  const source = './source/html/**/*.{njk,nunjucks}'
-
-  return gulp.src(source)
-    .pipe(htmlhint('.htmlhintrc'))
-    .pipe(htmlhint.failReporter())
-})
-
-gulp.task('html', ['html-hint'], () => {
+gulp.task('html', () => {
   const source = './source/html/pages/**/*.{njk,nunjucks}'
   const dest = `${output()}/pages`
 
@@ -71,6 +63,7 @@ gulp.task('html', ['html-hint'], () => {
     .on('error', handleErrors)
     .pipe(prettify(htmlPrettifyConfig))
     .on('error', handleErrors)
-    .on('error', handleErrors)
+    .pipe(htmlhint('.htmlhintrc'))
+    .pipe(htmlhint.failReporter())
     .pipe(gulp.dest(dest))
 })
