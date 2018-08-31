@@ -6,11 +6,8 @@
 
 //--- 02. Tools ---//
 // Import library functions and mixins
-@import 'nestable-grid';
-@import 'blueq';
 @import '02-tools/clearfix';
 @import '02-tools/font-face';
-@import '02-tools/sizing';
 
 //--- 03. Generic ---//
 // Put all Resets, Normalize etc baseline code
@@ -18,7 +15,6 @@
 
 //--- 04. Elements ---//
 // Some global default element styles that are not usually the defaults
-@import '04-elements/fonts';
 @import '04-elements/page';
 
 //--- 05. Objects ---//
@@ -28,11 +24,7 @@
 
 //--- 06. Components ---//
 // These are bespoke chunks of the UI - each of these imported files should contain ONLY ONE 'BLOCK' each, which should be named the same as the file
-@import '06-components/footer';
-@import '06-components/header';
 
 //--- 07. Trumps ---//
 // Helpers and overrides
-// Use as sparingly as possible. Stuff in here can have !important. Again, USE ONLY WHEN NECESSARY (#NeverTrump)
 @import '07-trumps/helpers';
-@import '07-trumps/overrides';

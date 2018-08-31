@@ -1,9 +1,0 @@
-{# ---svg.use macro - used to add a reference to the svg defs sprite (make sure you are using the svg:use gulp task in your builds)--- #}
-{% macro use(iconName) %}
-  <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/images/svg-use-sprite.svg#{{iconName}}"></use></svg>
-{% endmacro %}
-
-{# ---svg.embed macro - used to embed the raw svg directly--- #}
-{% macro embed(fileName) %}
-  {% include 'source/svg/' + fileName + '.svg' %}
-{% endmacro %}

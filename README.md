@@ -3,25 +3,23 @@
 1. Ensure [NodeJS](https://nodejs.org/en/download/) is installed and `npm` is available on your PATH
 2. [OPTIONAL] Install yarn package manager `npm i yarn -g`
 3. If it isn't already, install the gulp cli globally `npm i gulp-cli -g`
-4. Run `yarn install` to install the project dependencies (this ensures you get the same dependency versions as everyone else). Yarn may need to be installed
+4. Run `npm install` to install the project dependencies
 5. Run `gulp` to launch the project in dev mode
 
 ## JavaScript
 
 1. [standard-js](http://standardjs.com/) as a way to conform to the same coding styles. This is enforced during compilation.
 2. [webpack](https://webpack.github.io/) for commonjs (node style) front-end javascript dependency management
-3. [blue-js](https://github.com/bluegrassdigital/blue-js) for a simple dom library
-4. [blue-widgets](https://github.com/bluegrassdigital/blue-widgets) for creating class based 'widgets' that attach functionality to the dom
+3. [blue-js](https://github.com/bluegrassdigital/blue-js) for a simple dom library alternative to jquery (optional)
+4. [blue-widgets](https://github.com/bluegrassdigital/blue-widgets) for creating class based 'widgets' that attach functionality to the dom (optional)
 
 ## CSS
 
 1. [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/) as a scalable CSS architecture
 2. [Sass](http://sass-lang.com/) (Scss syntax) for CSS preprocessing
 3. [BEM](http://getbem.com/naming/) for selector naming
-4. [nestable-grid](https://github.com/bluegrassdigital/nestable-grid) - a flexible/nestable responsive grid system
-5. [blueq](https://github.com/bluegrassdigital/blueq) - media query and breakpoint mixins and functions
-6. [Autoprefixer](https://github.com/postcss/autoprefixer) - a post-processing build task to avoid having to write vendor prefixes
-7. Scss files are automatically linted with our style rules in the .scss-lint.yml config
+4. [Autoprefixer](https://github.com/postcss/autoprefixer) - a post-processing build task to avoid having to write vendor prefixes
+5. Scss files are automatically linted with our style rules in the .scss-lint.yml config
 
 ## HTML
 
@@ -40,7 +38,7 @@ The default task runs the build in dev mode. Assets are copied or compiled to th
 
 ### `gulp release`
 
-Run a build in release mode. Instead of compiling all output to `./www` the assets are all compiled and minified to `./Release`. The nunjucks pages are compiled into html.
+Run a build in release mode. Instead of compiling all output to `./www` the assets are all compiled and minified to `./dist`. The nunjucks pages are compiled into html.
 
 ### `gulp stage`
 

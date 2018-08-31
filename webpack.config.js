@@ -1,5 +1,4 @@
 var webpack = require('webpack')
-var fs = require('fs')
 var path = require('path')
 
 module.exports = {
@@ -29,17 +28,18 @@ module.exports = {
   ],
   module: {
     rules: [{
-      // set up standard-loader as a preloader
-      test: /\.jsx?$/,
-      loader: 'standard-loader',
-      exclude: /(docs|third-party)/,
-      include: /(source)/,
-      enforce: 'pre'
-    }, {
       test: /\.js$/,
-      exclude: /(node_modules|bower_components|docs|third-party)/,
-      loader: 'babel-loader', // 'babel-loader' is also a legal name to reference
-      query: JSON.parse(fs.readFileSync('.babelrc', 'utf8'))
+      exclude: /(node_modules|bower_components|docs)/,
+      loader: 'babel-loader',
+      query: {
+        'presets': [
+          ['es2015', {
+            'loose': true,
+            'modules': false
+          }], 'stage-3'
+        ],
+        'plugins': ['lodash']
+      }
     }]
   }
 }

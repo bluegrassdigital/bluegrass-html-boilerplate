@@ -1,12 +1,1 @@
-// Nestable grid layout
-$nestable-options: (
-  columns: 12,
-  gutter-width: 2.5%,
-  breakpoints: $blueq-breakpoints,
-  output-sizes: (
-    m: (6),
-    l: (4, 6, 8),
-    xl: (3, 4, 6, 8, 9)
-  )
-);
-@include nestable($nestable-options);
+// Custom grid layout
