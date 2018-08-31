@@ -1,5 +1,4 @@
 import gulp from 'gulp'
-import runSequence from 'run-sequence'
 import requireDir from 'require-dir'
 import notify from 'gulp-notify'
 
@@ -28,19 +27,19 @@ export function handleErrors () {
 
 requireDir('./gulp')
 
-gulp.task('_build', ['styles', 'static', 'scripts', 'docs'])
+gulp.task('_build', gulp.parallel('styles', 'static', 'scripts', 'docs'))
 
-gulp.task('default', cb => {
+gulp.task('default', gulp.series(cb => {
   env = DEV
-  runSequence('clean', '_build', 'serve', 'watch', cb)
-})
+  cb()
+}, 'clean', '_build', 'serve', 'watch'))
 
-gulp.task('release', cb => {
+gulp.task('release', gulp.series(cb => {
   env = RELEASE
-  runSequence('_build', 'html', cb)
-})
+  cb()
+}, 'clean', '_build', 'html'))
 
-gulp.task('stage', cb => {
+gulp.task('stage', gulp.series(cb => {
   env = STAGE
-  runSequence('clean', '_build', 'serve', 'watch', cb)
-})
+  cb()
+}, 'clean', '_build', 'serve', 'watch'))
