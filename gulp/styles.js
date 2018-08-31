@@ -1,6 +1,7 @@
 import gulp from 'gulp'
 import sass from 'gulp-sass'
-import autoprefixer from 'gulp-autoprefixer'
+import postcss from 'gulp-postcss'
+import autoprefixer from 'autoprefixer'
 import sourcemaps from 'gulp-sourcemaps'
 import { importer } from 'npm-sass'
 
@@ -17,15 +18,16 @@ gulp.task('styles', () => {
   }
 
   const apConfig = {
-    cascade: true,
-    browsers: ['last 3 versions', 'ie 9', 'ie 10', 'ie 11', 'android >= 2.3']
+    cascade: true
   }
 
   return gulp.src(source)
     .pipe(sourcemaps.init())
     .pipe(sass(sassOpts).on('error', handleErrors))
     .on('error warn', handleErrors)
-    .pipe(autoprefixer(apConfig))
+    .pipe(postcss([
+      autoprefixer(apConfig)
+    ]))
     .on('error warn', handleErrors)
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(dest))

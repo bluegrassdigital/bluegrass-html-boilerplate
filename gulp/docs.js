@@ -4,17 +4,7 @@ import nunjucks from 'gulp-nunjucks-html'
 import data from 'gulp-data'
 import { output, handleErrors } from '../gulpfile.babel'
 
-import { templateData, nunjucksConfig } from './html'
-
-gulp.task('docs', ['docs:nunjucks:html', 'docs:nunjucks:md'], () => {
-  const source = ['./docs/**/*', '!./docs/**/*.{md,markdown}']
-  const dest = `${output()}/docs/`
-
-  return gulp.src(source)
-    .pipe(changed(dest))
-    .on('error', handleErrors)
-    .pipe(gulp.dest(dest))
-})
+import { templateData } from './html'
 
 const nunjucksDocsEnvSetup = function (env) {
   // Do things with nunjucks environment (add globals etc.)
@@ -53,3 +43,13 @@ gulp.task('docs:nunjucks:html', () => {
     .on('error', handleErrors)
     .pipe(gulp.dest(dest))
 })
+
+gulp.task('docs', gulp.series('docs:nunjucks:html', 'docs:nunjucks:md', () => {
+  const source = ['./docs/**/*', '!./docs/**/*.{md,markdown}']
+  const dest = `${output()}/docs/`
+
+  return gulp.src(source)
+    .pipe(changed(dest))
+    .on('error', handleErrors)
+    .pipe(gulp.dest(dest))
+}))
