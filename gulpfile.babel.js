@@ -9,7 +9,7 @@ export const DEV = 'DEV'
 export let env = DEV
 
 export function output () {
-  return (env === DEV || env === STAGE) ? './www' : './Release'
+  return (env === DEV || env === STAGE) ? './www' : './dist'
 }
 
 import notify from 'gulp-notify'

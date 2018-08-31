@@ -3,6 +3,7 @@ syntax: glob
 *.css.map
 node_modules
 www
+dist
 .idea
 .temp
 .tags

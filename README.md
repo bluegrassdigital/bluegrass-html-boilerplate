@@ -40,7 +40,7 @@ The default task runs the build in dev mode. Assets are copied or compiled to th
 
 ### `gulp release`
 
-Run a build in release mode. Instead of compiling all output to `./www` the assets are all compiled and minified to `./Release`. The nunjucks pages are compiled into html.
+Run a build in release mode. Instead of compiling all output to `./www` the assets are all compiled and minified to `./dist`. The nunjucks pages are compiled into html.
 
 ### `gulp stage`
 

@@ -7,17 +7,17 @@ class Foo extends Widget {
 
     this.barEl = el.querySelector('.bar')
 
-    //Avoid having to bind this every time
+    // Avoid having to bind this every time
     this.someMethod = this.someMethod.bind(this)
 
-    this.barEl.addEventListener('click', this.someMethod.bind(this), false)
+    this.barEl.addEventListener('click', this.someMethod, false)
   }
   onBarElClick (event) {
     event.preventDefault()
     window.alert('clicked bar el')
   }
   beforeRemove () {
-    this.barEl.removeEventListener('click', this.someMethod.bind(this), false)
+    this.barEl.removeEventListener('click', this.someMethod, false)
   }
 }
 
