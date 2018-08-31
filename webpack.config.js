@@ -28,15 +28,8 @@ module.exports = {
   ],
   module: {
     rules: [{
-      // set up standard-loader as a preloader
-      test: /\.jsx?$/,
-      loader: 'standard-loader',
-      exclude: /(docs|third-party)/,
-      include: /(source)/,
-      enforce: 'pre'
-    }, {
       test: /\.js$/,
-      exclude: /(node_modules|bower_components|docs|third-party)/,
+      exclude: /(node_modules|bower_components|docs)/,
       loader: 'babel-loader',
       query: {
         'presets': [

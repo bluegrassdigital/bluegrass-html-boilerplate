@@ -5,7 +5,6 @@ import glob from 'glob'
 import nunjucks from 'gulp-nunjucks-html'
 import prettify from 'gulp-prettify'
 import data from 'gulp-data'
-import htmlhint from 'gulp-htmlhint'
 
 import { output, handleErrors } from '../gulpfile.babel'
 
@@ -63,7 +62,5 @@ gulp.task('html', () => {
     .on('error', handleErrors)
     .pipe(prettify(htmlPrettifyConfig))
     .on('error', handleErrors)
-    .pipe(htmlhint('.htmlhintrc'))
-    .pipe(htmlhint.failReporter())
     .pipe(gulp.dest(dest))
 })

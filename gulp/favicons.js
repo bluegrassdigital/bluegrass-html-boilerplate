@@ -3,7 +3,7 @@ import gulp from 'gulp'
 import favicons from 'gulp-favicons'
 import wait from 'gulp-wait'
 
-import { handleErrors, output } from '../gulpfile.babel'
+import { handleErrors } from '../gulpfile.babel'
 
 gulp.task('favicons', cb => {
   const source = './source/favicon.png'
