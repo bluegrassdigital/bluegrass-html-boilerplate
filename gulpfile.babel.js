@@ -1,6 +1,7 @@
 import gulp from 'gulp'
 import runSequence from 'run-sequence'
 import requireDir from 'require-dir'
+import notify from 'gulp-notify'
 
 export const STAGE = 'STAGE'
 export const RELEASE = 'RELEASE'
@@ -11,8 +12,6 @@ export let env = DEV
 export function output () {
   return (env === DEV || env === STAGE) ? './www' : './dist'
 }
-
-import notify from 'gulp-notify'
 
 export function handleErrors () {
   const args = Array.from(arguments)
