@@ -11,6 +11,7 @@ gulp.task('scripts', cb => {
   let firstRun = true
   if (env === DEV) {
     config.plugins = []
+    config.mode = 'development'
     config.devtool = 'eval-cheap-source-map'
   }
   if (env === DEV || env === STAGE) {

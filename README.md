@@ -1,5 +1,7 @@
 ## Getting started
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/bluegrassdigital/bluegrass-html-boilerplate.svg)](https://greenkeeper.io/)
+
 1. Ensure [NodeJS](https://nodejs.org/en/download/) is installed and `npm` is available on your PATH
 2. [OPTIONAL] Install yarn package manager `npm i yarn -g`
 3. If it isn't already, install the gulp cli globally `npm i gulp-cli -g`
