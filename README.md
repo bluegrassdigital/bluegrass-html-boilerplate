@@ -1,10 +1,9 @@
 ## Getting started
 
 1. Ensure [NodeJS](https://nodejs.org/en/download/) is installed and `npm` is available on your PATH
-2. [OPTIONAL] Install yarn package manager `npm i yarn -g`
-3. If it isn't already, install the gulp cli globally `npm i gulp-cli -g`
-4. Run `npm install` to install the project dependencies
-5. Run `gulp` to launch the project in dev mode
+2. If it isn't already, install the gulp cli globally `npm i gulp-cli -g`
+3. Run `npm install` to install the project dependencies
+4. Run `gulp` to launch the project in dev mode
 
 ## JavaScript
 
