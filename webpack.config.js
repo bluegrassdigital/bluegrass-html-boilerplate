@@ -17,13 +17,27 @@ module.exports = {
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
-    })
+    }),
   ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /node_modules/,
+          chunks: 'initial',
+          name: 'vendor',
+          enforce: true
+        },
+      }
+    }
+  },
   module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /(node_modules|bower_components|docs)/,
-      loader: 'babel-loader'
-    }]
-  }
+    rules: [
+      {
+        test: /\.js$/,
+        type: 'javascript/esm',
+        exclude: /node_modules/,
+      }
+    ]
+  },
 }

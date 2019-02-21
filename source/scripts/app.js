@@ -1,6 +1,5 @@
-
 function init () {
   // init application
 }
 
-init()
+init();
