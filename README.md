@@ -9,7 +9,7 @@
 
 ## JavaScript
 
-1. [standard-js](http://standardjs.com/) as a way to conform to the same coding styles. This is enforced during compilation.
+1. [semistandard](https://github.com/Flet/semistandard) as a way to conform to the same coding styles. This is enforced during compilation.
 2. [webpack](https://webpack.github.io/) for commonjs (node style) front-end javascript dependency management
 3. [blue-js](https://github.com/bluegrassdigital/blue-js) for a simple dom library alternative to jquery (optional)
 4. [blue-widgets](https://github.com/bluegrassdigital/blue-widgets) for creating class based 'widgets' that attach functionality to the dom (optional)
