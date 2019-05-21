@@ -13,7 +13,7 @@
     "lint": "npm run lint-js && npm run lint-scss && npm run lint-html"
   },
   "devDependencies": {
-    "@babel/core": "^7.3.3",
+    "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.3.1",
     "@babel/register": "^7.0.0",
     "autoprefixer": "^9.4.8",
