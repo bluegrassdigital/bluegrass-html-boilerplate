@@ -38,6 +38,6 @@
     "require-dir": "^1.2.0",
     "sass-lint": "^1.12.1",
     "semistandard": "^13.0.1",
-    "webpack": "^4.29.5"
+    "webpack": "^4.35.2"
   }
 }
