@@ -37,7 +37,7 @@
     "nunjucks-browsersync-server": "^2.0.0",
     "require-dir": "^1.2.0",
     "sass-lint": "^1.12.1",
-    "semistandard": "^13.0.1",
+    "semistandard": "^14.0.0",
     "webpack": "^4.29.5"
   }
 }
